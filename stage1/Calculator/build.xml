@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<project name="javaTest" default="run" basedir=".">
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+
+  <target name="compile" depends="clean">
+    <mkdir dir="build/classes"/>
+    <javac srcdir="src" destdir="build/classes">
+      <compilerarg line="-encoding GBK"/>
+    </javac>
+  </target>
+  <target name="run" depends="compile">
+    <java classname="Calculator" fork="true">
+      <classpath>
+        <pathelement path="build/classes"/>
+      </classpath>
+    </java>
+  </target>
+</project>
